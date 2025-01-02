@@ -21,11 +21,7 @@ const app = express() ;
 const PORT = process.env.PORT || 5000 ; 
 const __dirname =path.resolve() ; 
 
-app.use(cors(
-    {origin: ["https://listwise.onrender.com"], // Allow only this domain
-  methods: ["GET", "POST", "PUT", "DELETE"],  // Allow specific HTTP methods
-  credentials: true, // Allow sending cookies and authorization headers
-})) ; 
+app.use(cors()) ; 
 app.use(express.json()) ; 
 app.use("/api" ,router)
 
