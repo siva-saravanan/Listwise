@@ -27,7 +27,7 @@ export const AdminSignin = async(req,res)=>{
     const {success} =  SigninBody.safeParse(body) ; 
 
     if(!success){
-        res.status(500).json({
+        return res.status(500).json({
             success : false , 
             message : "invalid inputs"
         })
@@ -39,7 +39,7 @@ export const AdminSignin = async(req,res)=>{
     const existinguser = await Admin.findOne({UserName : UserName}) ;
 
     if(!existinguser){
-        res.status(500).json({
+        return  res.status(500).json({
             success : false , 
             message : "User not found"
         })
@@ -48,7 +48,7 @@ export const AdminSignin = async(req,res)=>{
 
     const AdminId = existinguser._id ; 
     const token = jwt.sign({AdminId} ,JWT_SECRET)  ;
-    res.status(200).json({
+    return res.status(200).json({
         success : true  , 
         data : token
     })
@@ -60,14 +60,14 @@ export const AdminSignup = async(req,res)=>{
     const body = req.body  ;
     const {success} = SignupBody.safeParse(body) ;
     if(!success){
-        res.status(500).json({
+        return   res.status(500).json({
             success : false , 
             message : "invalid inputs"
         })
     }
     const existinguser = await Admin.findOne({UserName:body.UserName  }) ; 
     if(existinguser){
-        res.status(411).json({
+        return res.status(411).json({
              success : false , 
             message : "Email already taken"
         })
