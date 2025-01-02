@@ -5,9 +5,8 @@ import NavBar from './parts/NavBar'
 import CreatePage from './pages/CreatePage'
 import HomePage from './pages/HomePage'
 import { useColorModeValue } from '@chakra-ui/react'
-import SignupPage from './pages/signupPage'
 import SigninPage from './pages/SigninPage'
-
+import SignupPage from './pages/SignupPage'
 function App() {
  // minh =100 vh means occupies full screeen
   return (

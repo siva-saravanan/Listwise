@@ -16,7 +16,6 @@ const HomePage = () => {
   useEffect(() => {
     fetchProduct(token); 
   },[fetchProduct])
-  console.log(products)
   if(products.length >  0) {
     return (
       <Container maxW={'container.xl'}>
